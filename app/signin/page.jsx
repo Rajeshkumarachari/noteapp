@@ -1,23 +1,31 @@
 "use client";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../firebase/config";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 
 export default function SignIn() {
+  const user = useSelector((store) => store?.user?.user);
+  console.log(user);
   const router = useRouter();
   const [error, setError] = useState("");
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
+  useEffect(() => {
+    if (user) {
+      router.push("/");
+    }
+  }, [user]);
 
   function getLoginData(e) {
     const { id, value } = e.target;
     setLoginData((prev) => ({ ...prev, [id]: value }));
   }
-  console.log(loginData);
+  //console.log(loginData);
 
   const loginUser = async (e) => {
     e.preventDefault();

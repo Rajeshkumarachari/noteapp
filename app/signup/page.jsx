@@ -38,6 +38,7 @@ export default function SignUp() {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
+        username,
         email,
         password
       );
@@ -47,7 +48,7 @@ export default function SignUp() {
       setError(error.message);
     }
   };
-  console.log(registerData);
+  //console.log(registerData);
   return (
     <div className=" bg-red-50 h-[95vh] ">
       <div className=" flex mx-10 py-3 ">

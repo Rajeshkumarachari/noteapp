@@ -4,7 +4,7 @@ import NoteCard from "./NoteCard";
 
 const DisplayNotes = () => {
   const notes = useSelector((store) => store.note.note);
-  console.log(notes);
+  //console.log(notes);
   return (
     <div className=" flex gap-2 flex-wrap">
       {notes &&

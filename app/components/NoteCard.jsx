@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { deleteNote } from "../redux/noteSlice";
 
 const NoteCard = ({ data, index }) => {
-  console.log("key");
   const dispatch = useDispatch();
   return (
     <div className=" border w-[200px] rounded-lg h-[200px] ">
